@@ -209,6 +209,20 @@ class DataService
     }
 
     /**
+     * Send a batch request.
+     * 
+     * @param array $payload
+     * @return Entity|QueryResponse
+     * @throws \Exception
+     */
+    public function batch(array $payload)
+    {
+        $uri = $this->getRequestUrl('batch');
+        
+        return $this->request('POST', $uri);
+    }
+
+    /**
      * Return headers for request
      * 
      * @param  string           $method
